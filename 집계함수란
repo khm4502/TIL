@@ -6,11 +6,15 @@ GROUP BY / HAVING 절
 그룹바이절을 사용하여 그룹별 건수나 합계를 얻을수 있는데, 
 그룹별 집계된 결과 중 원하는 조건의 결과만 필터링하기 위해서는 HAVING절을 사용하여 필터조건으로 쓸수있다.
 
+
+/*
+   HAVING 없이 그룹바이만 했을경우 중복없이 하나의 컬럼으로만 여러 값이 나온다.
+   거기서 같은이름을 여러번 사용한 이름만 불러오고 싶을때 HAVING절에 NAME을 기준으로 COUNT해서 1이 넘는 조건들로만 불러온다..
+*/
+
 SELECT NAME , COUNT(NAME)
 FROM ANIMAL_INS
 GROUP BY NAME
 HAVING COUNT(NAME) > 1  
 ORDER BY NAME
-/* HAVING 없이 그룹바이만 했을경우 중복없이 하나의 컬럼으로만 여러 값이 나온다.
-   거기서 같은이름을 여러번 사용한 이름만 불러오고 싶을때 HAVING절에 NAME을 기준으로 COUNT해서 1이 넘는 조건들로만 불러온다..
-*/
+
